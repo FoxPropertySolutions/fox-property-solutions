@@ -1,0 +1,98 @@
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { MapPin, Phone, Mail } from "lucide-react";
+
+export default function Home() {
+  return (
+    <main className="p-6 space-y-12 bg-gray-50 text-gray-900">
+      {/* Hero Section */}
+      <section className="text-center py-20 bg-gradient-to-br from-emerald-600 to-emerald-800 text-white rounded-2xl shadow-xl">
+        <h1 className="text-5xl font-bold mb-4">Fox Property Solutions</h1>
+        <p className="text-xl italic">"Where there's a will there's a way"</p>
+        <p className="mt-4 text-lg">Serving Gold Coast & Brisbane</p>
+      </section>
+
+      {/* Services Section */}
+      <section className="grid md:grid-cols-2 gap-6">
+        {[
+          "Landscape Renovations",
+          "Fence Building",
+          "Retaining Wall Installations",
+          "Pergola & Outdoor Living Spaces",
+          "Bathroom Renovations",
+          "Kitchen Renovations",
+          "General Maintenance (inc. Plumbing)",
+          "Leak Detection & Resolution"
+        ].map((service, index) => (
+          <Card key={index} className="shadow-md hover:shadow-xl transition">
+            <CardContent className="p-6 font-semibold text-lg">{service}</CardContent>
+          </Card>
+        ))}
+      </section>
+
+      {/* Gallery Placeholder */}
+      <section>
+        <h2 className="text-3xl font-bold mb-4">Photo Gallery</h2>
+        <p className="text-gray-600">Images coming soon...</p>
+      </section>
+
+      {/* Testimonials */}
+      <section>
+        <h2 className="text-3xl font-bold mb-4">Testimonials</h2>
+        <div className="space-y-4">
+          <Card className="bg-white shadow">
+            <CardContent className="p-4">
+              <p className="italic">"Fox Property Solutions transformed our backyard — professional, fast, and top-notch quality!"</p>
+              <p className="mt-2 font-semibold">– Emily R.</p>
+            </CardContent>
+          </Card>
+          <Card className="bg-white shadow">
+            <CardContent className="p-4">
+              <p className="italic">"Highly recommended. They handled our bathroom reno and leak issues with skill and care."</p>
+              <p className="mt-2 font-semibold">– Mark T.</p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Quote Request Form */}
+      <section>
+        <h2 className="text-3xl font-bold mb-4">Request a Quote</h2>
+        <form className="grid gap-4 md:grid-cols-2">
+          <Input placeholder="Full Name" required />
+          <Input placeholder="Email Address" type="email" required />
+          <Input placeholder="Phone Number" required />
+          <Textarea placeholder="Describe your project" className="md:col-span-2" required />
+          <Button className="md:col-span-2">Submit Request</Button>
+        </form>
+      </section>
+
+      {/* Contact Info and Online Booking */}
+      <section>
+        <h2 className="text-3xl font-bold mb-4">Contact & Booking</h2>
+        <div className="space-y-2">
+          <p className="flex items-center gap-2"><Phone className="w-5 h-5" /> 0494 118 627</p>
+          <p className="flex items-center gap-2"><Mail className="w-5 h-5" /> foxpropertysolutions2024@gmail.com</p>
+          <p className="flex items-center gap-2"><MapPin className="w-5 h-5" /> Gold Coast & Brisbane</p>
+        </div>
+        <div className="mt-4">
+          <Button>Book a Consultation</Button>
+        </div>
+      </section>
+
+      {/* Google Maps Embed */}
+      <section>
+        <h2 className="text-3xl font-bold mb-4">Our Service Area</h2>
+        <iframe
+          src="https://www.google.com/maps/d/u/0/embed?mid=1-ExampleServiceAreaMap" // Replace with real link
+          width="100%"
+          height="300"
+          className="rounded-xl shadow"
+          loading="lazy"
+        ></iframe>
+      </section>
+    </main>
+  );
+}
